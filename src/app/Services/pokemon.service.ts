@@ -33,7 +33,7 @@ export class PokemonService {
     // TODO
   }
 
-  deletePokemon(id:number) {
+  deletePokemon(id:number) : void {
     //TODO
   }
 
