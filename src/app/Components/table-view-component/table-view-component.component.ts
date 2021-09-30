@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from "../../Pokemon";
+import { Pokemon } from "../../Models/Pokemon";
 @Component({
   selector: 'app-table-view-component',
   templateUrl: './table-view-component.component.html',
@@ -12,7 +12,7 @@ export class TableViewComponentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+    // Llamar al servicio HTTP para recoger todo lo que haya en la base de datos 
   }
 
 }
