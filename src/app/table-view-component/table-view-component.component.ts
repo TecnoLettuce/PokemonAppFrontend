@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Pokemon } from "../../Pokemon";
 @Component({
   selector: 'app-table-view-component',
   templateUrl: './table-view-component.component.html',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableViewComponentComponent implements OnInit {
 
+  pokemonList : Pokemon[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
