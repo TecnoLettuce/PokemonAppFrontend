@@ -26,7 +26,15 @@ export class PokemonService {
   }
 
   createPokemon(pokemon : Pokemon) {
-    
+    // TODO
+  }
+
+  updatePokemon(pokemon : Pokemon) {
+    // TODO
+  }
+
+  deletePokemon(id:number) {
+    //TODO
   }
 
 }
