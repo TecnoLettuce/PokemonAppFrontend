@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { PokemonService } from 'src/app/Services/pokemon.service';
 import { Pokemon } from "../../Models/Pokemon";
 @Component({
@@ -9,11 +10,13 @@ import { Pokemon } from "../../Models/Pokemon";
 })
 export class TableViewComponentComponent implements OnInit {
 
-  pokemonId : number = -1
+  public pokemonId = new FormControl()
+
   pokemon = new Pokemon(-1, -1, 'initial name', 'type', 'type', -1, 'sample location');
   pokemonList : Pokemon[] = []
 
   loadingSW : boolean = false
+  isThereAPokemon : boolean = false;
   errorMessage : string = ''
 
   constructor(private pokemonService : PokemonService) { }
@@ -47,8 +50,35 @@ export class TableViewComponentComponent implements OnInit {
       )
   }
 
-  getPokemonById(id : number) {
-    //TODO
+  getPokemonById() {
+    
+    this.loadingSW = true;
+
+    this.pokemonService.getPokemonById(parseInt(this.pokemonId.value))
+      .subscribe(
+        (response) => {
+          console.log('response received')
+
+          if (response == null) {
+            this.isThereAPokemon=false;
+          } else {
+            
+            this.isThereAPokemon = true;
+
+            this.pokemon = new Pokemon(0 ,response.id, response.name, response.type1, response.type2, response.generation, response.imx_location)
+          }
+
+        },
+        (requestError) => {
+          console.log('Request Failed')
+          this.errorMessage = requestError;
+          this.loadingSW = false;
+        }, 
+        () => {
+          console.log('Request Completed')
+          this.loadingSW = false
+        }
+      )
   }
 
   createPokemon() {
@@ -75,6 +105,8 @@ export class TableViewComponentComponent implements OnInit {
 
   resetTable() : void {
     this.pokemonList = [];
+    this.isThereAPokemon = false;
+    
   }
 
 }

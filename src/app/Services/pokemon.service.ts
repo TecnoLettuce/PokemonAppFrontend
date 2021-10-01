@@ -23,7 +23,7 @@ export class PokemonService {
 
   getPokemonById(id : number): Observable<any> {
 
-    return this.http.get(this.baseURL + '/' + id)
+    return this.http.get("/api/Pokemon/" + id)
   }
 
   createPokemon(pokemon : Pokemon) {

@@ -13,10 +13,7 @@
 </div>
  
 <div *ngIf="loadingSW">loading...</div>
- 
-<div *ngIf="errorMessage" class="alert alert-warning">
-  <strong>Warning!</strong> {{errorMessage | json}}
-</div>
+
  
  
 <table class='table'>
@@ -43,4 +40,48 @@
     </tr>
   </tbody>
 </table>
+
+<h1>Get pokemon by Database ID</h1>
+
+
+<div class="form-group">
+  <label for="pokemonId">Pokemon Database ID: </label>
+  <input id="pokemonId" type="number" [formControl]="pokemonId">
+  <button type="button" (click)="getPokemonById()">Search</button>
+  <button type="button" (click)="resetTable()">Reset Table</button>
+
+
+
+</div>
  
+<div *ngIf="loadingSW">loading...</div>
+
+ 
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Database ID</th>
+      <th>Name</th>
+      <th>Type 1</th>
+      <th>Type 2</th>
+      <th>Generation</th>
+      <th>Sprite Image Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="isThereAPokemon">
+      <td>{{pokemon.DatabaseId}}</td>
+      <td>{{pokemon.Name}}</td>
+      <td>{{pokemon.Type1}}</td>
+      <td>{{pokemon.Type2}}</td>
+      <td>{{pokemon.Generation}}</td>
+      <td> <img src="{{pokemon.Imx_location}}" alt="unable to reach image's url"/></td>
+    </tr>
+  </tbody>
+</table>
+ 
+
+ 
+<div *ngIf="errorMessage" class="alert alert-warning">
+  <strong>Warning!</strong> {{errorMessage | json}}
+</div>
