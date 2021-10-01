@@ -73,4 +73,8 @@ export class TableViewComponentComponent implements OnInit {
     }
   }
 
+  resetTable() : void {
+    this.pokemonList = [];
+  }
+
 }
