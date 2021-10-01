@@ -10,6 +10,7 @@ import { Pokemon } from "../../Models/Pokemon";
 export class TableViewComponentComponent implements OnInit {
 
   pokemonId : number = -1
+  pokemon = new Pokemon(-1, 'initial name', 'type', 'type', -1, 'sample location');
   pokemonList : Pokemon[] = []
 
   loadingSW : boolean = false
@@ -23,15 +24,14 @@ export class TableViewComponentComponent implements OnInit {
 
   public getAllPokemon() {
     
-    console.log('Estoy dentro del metodo getAllPokemon')
-
     this.loadingSW = true;
 
     this.pokemonService.getAllPokemon()
       .subscribe(
         (response) => {
           console.log('response received')
-          this.pokemonList = response
+
+          this.assignPokemontoPokemonList(response)
         },
         (requestError) => {
           console.log('Request Failed')
@@ -59,6 +59,19 @@ export class TableViewComponentComponent implements OnInit {
 
   deletePokemon() {
     //TODO
+  }
+
+  private assignPokemontoPokemonList(response : any) : void {
+    for (let i = 0; i < response.length; i++) {
+      this.pokemon.Id = response[i].id
+      this.pokemon.Name = response[i].name
+      this.pokemon.Type1 = response[i].type1
+      this.pokemon.Type2 = response[i].type2
+      this.pokemon.Generation = response[i].generation
+      this.pokemon.Imx_location = response[i].imx_location
+
+      this.pokemonList.push(this.pokemon)          
+    }
   }
 
 }

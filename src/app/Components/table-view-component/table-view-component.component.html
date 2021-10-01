@@ -30,15 +30,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let pokemon of pokemonList;">
-      <td>{{pokemon.Id}}</td>
-      <td>{{pokemon.Name}}</td>
-      <td>{{pokemon.Type1}}</td>
-      <td>{{pokemon.Type2}}</td>
-      <td>{{pokemon.Generation}}</td>
-      <td>{{pokemon.Imx_location}}</td>
+    <tr *ngFor="let pokemon of pokemonList; let i = index">
+      <td>{{pokemonList[i].Id}}</td>
+      <td>{{pokemonList[i].Name}}</td>
+      <td>{{pokemonList[i].Type1}}</td>
+      <td>{{pokemonList[i].Type2}}</td>
+      <td>{{pokemonList[i].Generation}}</td>
+      <td>{{pokemonList[i].Imx_location}}</td>
     </tr>
   </tbody>
 </table>
  
-<pre>{{pokemonList | json}}</pre>
