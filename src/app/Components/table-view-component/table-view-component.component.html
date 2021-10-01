@@ -21,7 +21,8 @@
 <table class='table'>
   <thead>
     <tr>
-      <th>ID</th>
+      <th>Pokedex #</th>
+      <th>Database ID</th>
       <th>Name</th>
       <th>Type 1</th>
       <th>Type 2</th>
@@ -31,7 +32,8 @@
   </thead>
   <tbody>
     <tr *ngFor="let pokemon of pokemonList; let i = index">
-      <td>{{pokemonList[i].Id}}</td>
+      <td>{{pokemonList[i].PokedexId}}</td>
+      <td>{{pokemonList[i].DatabaseId}}</td>
       <td>{{pokemonList[i].Name}}</td>
       <td>{{pokemonList[i].Type1}}</td>
       <td>{{pokemonList[i].Type2}}</td>

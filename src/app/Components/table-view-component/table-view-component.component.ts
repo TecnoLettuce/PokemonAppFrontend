@@ -10,7 +10,7 @@ import { Pokemon } from "../../Models/Pokemon";
 export class TableViewComponentComponent implements OnInit {
 
   pokemonId : number = -1
-  pokemon = new Pokemon(-1, 'initial name', 'type', 'type', -1, 'sample location');
+  pokemon = new Pokemon(-1, -1, 'initial name', 'type', 'type', -1, 'sample location');
   pokemonList : Pokemon[] = []
 
   loadingSW : boolean = false
@@ -66,7 +66,7 @@ export class TableViewComponentComponent implements OnInit {
   private assignPokemontoPokemonList(response : any) : void {
     for (let i = 0; i < response.length; i++) {
 
-      let pokemonIndex : Pokemon = new Pokemon(i+1, response[i].name, response[i].type1, response[i].type2, response[i].generation, response[i].imx_location) 
+      let pokemonIndex : Pokemon = new Pokemon(i+1,response[i].id, response[i].name, response[i].type1, response[i].type2, response[i].generation, response[i].imx_location) 
 
       this.pokemonList.push(pokemonIndex) 
 
