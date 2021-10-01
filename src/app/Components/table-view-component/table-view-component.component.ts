@@ -24,6 +24,8 @@ export class TableViewComponentComponent implements OnInit {
 
   public getAllPokemon() {
     
+    this.pokemonList = [];
+
     this.loadingSW = true;
 
     this.pokemonService.getAllPokemon()
@@ -63,14 +65,11 @@ export class TableViewComponentComponent implements OnInit {
 
   private assignPokemontoPokemonList(response : any) : void {
     for (let i = 0; i < response.length; i++) {
-      this.pokemon.Id = response[i].id
-      this.pokemon.Name = response[i].name
-      this.pokemon.Type1 = response[i].type1
-      this.pokemon.Type2 = response[i].type2
-      this.pokemon.Generation = response[i].generation
-      this.pokemon.Imx_location = response[i].imx_location
 
-      this.pokemonList.push(this.pokemon)          
+      let pokemonIndex : Pokemon = new Pokemon(i+1, response[i].name, response[i].type1, response[i].type2, response[i].generation, response[i].imx_location) 
+
+      this.pokemonList.push(pokemonIndex) 
+
     }
   }
 
