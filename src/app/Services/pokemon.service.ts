@@ -10,6 +10,7 @@ import { Pokemon } from '../Models/Pokemon';
 export class PokemonService {
 
   baseURL : string = 'https://localhost:44388/api/Pokemon'
+  baseURL2 : string = '/api/Pokemon'
 
   constructor(private http : HttpClient) { 
 
@@ -17,7 +18,7 @@ export class PokemonService {
 
   getAllPokemon(): Observable<any> {
 
-    return this.http.get(this.baseURL)
+    return this.http.get("/api/Pokemon")
   }
 
   getPokemonById(id : number): Observable<any> {
