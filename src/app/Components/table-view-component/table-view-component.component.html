@@ -1,4 +1,4 @@
-<h1 class="heading"><strong>HTTP </strong>Demo</h1>
+<h1 class="heading"><strong>Get </strong>All Pokemon</h1>
  
 <!--
 <div class="form-group">
@@ -14,8 +14,6 @@
  
 <div *ngIf="loadingSW">loading...</div>
 
- 
- 
 <table class='table'>
   <thead>
     <tr>
@@ -25,7 +23,7 @@
       <th>Type 1</th>
       <th>Type 2</th>
       <th>Generation</th>
-      <th>Sprite Image Location</th>
+      <th>Sprite Image</th>
     </tr>
   </thead>
   <tbody>
@@ -41,6 +39,10 @@
   </tbody>
 </table>
 
+<br>
+<br>
+<hr>
+<br>
 <h1>Get pokemon by Database ID</h1>
 
 
@@ -49,9 +51,6 @@
   <input id="pokemonId" type="number" [formControl]="pokemonId">
   <button type="button" (click)="getPokemonById()">Search</button>
   <button type="button" (click)="resetTable()">Reset Table</button>
-
-
-
 </div>
  
 <div *ngIf="loadingSW">loading...</div>
@@ -65,7 +64,7 @@
       <th>Type 1</th>
       <th>Type 2</th>
       <th>Generation</th>
-      <th>Sprite Image Location</th>
+      <th>Sprite Image</th>
     </tr>
   </thead>
   <tbody>

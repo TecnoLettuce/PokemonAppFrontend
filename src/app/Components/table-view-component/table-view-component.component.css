@@ -1,4 +1,25 @@
 
-img {
+table {
     width: 100%;
+    background-color: #fcf8e6;opacity:0.9;
+}
+th {
+    background-color: bisque; opacity: 0.95;
+    text-align: center;
+    font-size: medium;
+    border-bottom: double;
+    border-bottom-color:darkslategrey;
+    
+}
+
+td {
+    text-align: center;
+    font-size: large;
+    border-bottom: double;
+    border-bottom-color: rgb(219, 223, 185);
+    
+}
+
+img {
+    width: 80%;
 }
