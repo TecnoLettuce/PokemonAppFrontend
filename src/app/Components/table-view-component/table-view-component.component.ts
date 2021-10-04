@@ -11,6 +11,12 @@ import { Pokemon } from "../../Models/Pokemon";
 export class TableViewComponentComponent implements OnInit {
 
   public pokemonId = new FormControl()
+  public pokemonName = new FormControl();
+  public pokemonType1 = new FormControl();
+  public pokemonType2 = new FormControl();
+  public pokemonGeneration = new FormControl();
+  public imx_location = new FormControl();
+
 
   pokemon = new Pokemon(-1, -1, 'initial name', 'type', 'type', -1, 'sample location');
   pokemonList : Pokemon[] = []
@@ -82,7 +88,14 @@ export class TableViewComponentComponent implements OnInit {
   }
 
   createPokemon() {
-    // TODO
+    let pokemon = new Pokemon(this.pokemonId.value,
+                              0,
+                              this.pokemonName.value,
+                              this.pokemonType1.value,
+                              this.pokemonType2.value,
+                              this.pokemonGeneration.value, 
+                              this.imx_location.value)
+    this.pokemonService.createPokemon(pokemon)
   }
 
   updatePokemon() {

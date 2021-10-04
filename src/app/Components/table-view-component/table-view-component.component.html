@@ -78,7 +78,43 @@
     </tr>
   </tbody>
 </table>
+
+
+<br>
+<br>
+<hr>
+<br>
+<h1>Insert new pokemon</h1>
+
+
+<div class="form-group">
+  <label for="pokemonId">New Pokemon Pokedex ID : </label>
+  <input id="pokemonId" type="number" [formControl]="pokemonId">
+  <br>
+  <label for="pokemonName">New Pokemon Name : </label>
+  <input id="pokemonName" type="text" [formControl]="pokemonName">
+  <br>
+  <label for="pokemonType1">New Pokemon Type 1 : </label>
+  <input id="pokemonType1" type="text" [formControl]="pokemonType1">
+  <br>
+  <label for="pokemonType2">New Pokemon Type 2 : </label>
+  <input id="pokemonType1" type="text" [formControl]="pokemonType2">
+  <br>
+  <label for="pokemonGeneration">New Pokemon Generation : </label>
+  <input id="pokemonGeneration" type="number" [formControl]="pokemonGeneration">
+  <br>
+  <label for="imx_location">New Pokemon Sprite : </label>
+  <input id="imx_location" type="text" [formControl]="imx_location">
+  <br>
+  <br>
+
+  <button type="button" (click)="createPokemon()">Insert Pokemon</button>
+  <!--
+  <button type="button" (click)="resetTable()">Reset Table</button>
+  -->
+</div>
  
+<div *ngIf="loadingSW">loading...</div>
 
  
 <div *ngIf="errorMessage" class="alert alert-warning">
