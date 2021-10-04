@@ -99,8 +99,27 @@ export class TableViewComponentComponent implements OnInit {
     this.resetTable()
   }
 
-  updatePokemon() {
-    // TODO
+  updatePokemon() : boolean {
+
+    let pokemon = new Pokemon(this.pokemonId.value,
+                              0,
+                              this.pokemonName.value,
+                              this.pokemonType1.value,
+                              this.pokemonType2.value,
+                              this.pokemonGeneration.value, 
+                              this.imx_location.value)
+    
+    if (!this.isPokemonIdInDatabase(pokemon.PokedexId)) {
+      alert('El pokemon no se encuentra en la base de datos')
+      return false
+    }
+    // Faltan las validaciones 
+    this.pokemonService.updatePokemon(pokemon).subscribe(data => {
+      alert('Pokemon '+pokemon.PokedexId+', Actualizado.')
+    })
+    this.resetTable()
+
+    return true
   }
 
   deletePokemon() {
@@ -140,4 +159,13 @@ export class TableViewComponentComponent implements OnInit {
     this.errorMessage = ""
   }
 
+  private isPokemonIdInDatabase(id: number) : boolean {
+    
+    console.log(id)
+    let pokemonFound = this.pokemonList.find(element => element.DatabaseId == id)
+    console.log(pokemonFound)
+    return pokemonFound != undefined
+  }
 }
+
+

@@ -49,8 +49,20 @@ export class PokemonService {
   }
 
 
-  updatePokemon(pokemon : Pokemon) {
-    //TODO
+  updatePokemon(pokemon : Pokemon) : Observable<any> {
+
+    console.log('Dentro de update')
+
+    let putData = {
+      id: pokemon.PokedexId,
+      name : pokemon.Name,
+      type1 : pokemon.Type1,
+      type2 : pokemon.Type2,
+      generation : pokemon.Generation,
+      imx_location : pokemon.Imx_location
+    }
+
+    return this.http.put('/api/Pokemon', putData)
   }
 
   deletePokemon(id:number): Observable<any> {
