@@ -103,7 +103,13 @@ export class TableViewComponentComponent implements OnInit {
   }
 
   deletePokemon() {
-    //TODO
+    this.pokemonService.deletePokemon(this.pokemonId.value)
+      .subscribe(
+        data => {
+          console.log(data);
+        }
+      )
+    alert("Eliminado!")
   }
 
   private assignPokemontoPokemonList(response : any) : void {

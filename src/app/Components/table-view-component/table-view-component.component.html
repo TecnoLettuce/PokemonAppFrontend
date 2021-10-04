@@ -116,6 +116,30 @@
  
 <div *ngIf="loadingSW">loading...</div>
 
+<br>
+<br>
+<hr>
+<br>
+<h1>Delete pokemon</h1>
+
+
+<div class="form-group">
+  <label for="pokemonId">Database ID : </label>
+  <input id="pokemonId" type="number" [formControl]="pokemonId">
+  <br>
+  <br>
+
+  <button type="button" (click)="deletePokemon()">Delete Pokemon</button>
+  <!--
+  <button type="button" (click)="resetTable()">Reset Table</button>
+  -->
+</div>
+ 
+<div *ngIf="loadingSW">loading...</div>
+
+
+
+
  
 <div *ngIf="errorMessage" class="alert alert-warning">
   <strong>Warning!</strong> {{errorMessage | json}}

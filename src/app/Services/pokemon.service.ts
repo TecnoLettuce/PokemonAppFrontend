@@ -53,8 +53,9 @@ export class PokemonService {
     //TODO
   }
 
-  deletePokemon(id:number) : void {
-    //TODO
+  deletePokemon(id:number): Observable<any> {
+    
+    return this.http.delete("api/Pokemon/"+id)
   }
 
 }
