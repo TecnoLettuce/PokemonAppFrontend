@@ -9,7 +9,7 @@
 
 <div class="form-group">
   <button type="button" (click)="getAllPokemon()">Get All Pokemon</button>
-  <button type="button" (click)="resetTable()">Reset Table</button>
+  <button id="ResetButton" type="button" (click)="resetTable()">Reset Table</button>
 </div>
  
 <div *ngIf="loadingSW">loading...</div>
@@ -53,7 +53,7 @@
   <br>
   <br>
   <button type="button" (click)="getPokemonById()">Search</button>
-  <button type="button" (click)="resetTable()">Reset Table</button>
+  <button id="ResetButton" type="button" (click)="resetTable()">Reset Table</button>
 </div>
  
 <div *ngIf="loadingSW">loading...</div>
@@ -129,7 +129,7 @@
             </tbody>
           </table>
 
-          <button type="button" (click)="createPokemon()">Insert Pokemon</button>
+          <button id="InsertButton" type="button" (click)="createPokemon()">Insert Pokemon</button>
           <!--
           <button type="button" (click)="resetTable()">Reset Table</button>
           -->
@@ -142,7 +142,7 @@
           <br>
           <br>
         
-          <button type="button" (click)="deletePokemon()">Delete Pokemon</button>
+          <button id="DeleteButton" type="button" (click)="deletePokemon()">Delete Pokemon</button>
           <!--
           <button type="button" (click)="resetTable()">Reset Table</button>
           -->

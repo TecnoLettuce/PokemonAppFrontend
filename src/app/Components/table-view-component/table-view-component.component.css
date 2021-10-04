@@ -23,3 +23,31 @@ td {
 img {
     width: 80%;
 }
+
+button {
+    background-color: rgb(219, 251, 252);
+    font-size: medium;
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    margin: 0.5em;
+    font-weight: bold;
+}
+
+#DeleteButton {
+    background-color: rgb(223, 74, 104);
+}
+
+#InsertButton {
+    background-color: rgb(74, 223, 149);
+}
+
+#ResetButton {
+    background-color: rgb(223, 171, 74);
+}
+
+input {
+    text-align: center;
+    border-radius: 15px;
+    border-color: darkgrey;
+}
