@@ -31,6 +31,11 @@ export class TableViewComponentComponent implements OnInit {
     
   }
 
+  /**
+   * Get HTTP Request 
+   * 
+   * Take all items in database and add them to the list, casted as pokemon
+   */
   public getAllPokemon() {
     
     this.pokemonList = [];
@@ -56,6 +61,12 @@ export class TableViewComponentComponent implements OnInit {
       )
   }
 
+  
+  /**
+   * Get HTTP Request 
+   * 
+   * Take the item in database which has the right ID and shows it in the second table of the view, casted as pokemon
+   */
   getPokemonById() {
     
     this.loadingSW = true;
@@ -87,6 +98,13 @@ export class TableViewComponentComponent implements OnInit {
       )
   }
 
+  
+  /**
+   * Post HTTP Request 
+   * 
+   * Take data from the form of the view.
+   * Creates a new Pokemon whith that data, then send the request
+   */
   createPokemon() {
     let pokemon = new Pokemon(this.pokemonId.value,
                               0,
@@ -99,6 +117,12 @@ export class TableViewComponentComponent implements OnInit {
     this.resetTable()
   }
 
+  
+  /**
+   * Put HTTP Request 
+   * 
+   * Same process as createPokemon()
+   */
   updatePokemon() : boolean {
 
     let pokemon = new Pokemon(this.pokemonId.value,
@@ -113,7 +137,7 @@ export class TableViewComponentComponent implements OnInit {
       alert('El pokemon no se encuentra en la base de datos')
       return false
     }
-    // Faltan las validaciones 
+    
     this.pokemonService.updatePokemon(pokemon).subscribe(data => {
       alert('Pokemon '+pokemon.PokedexId+', Actualizado.')
     })
@@ -122,6 +146,12 @@ export class TableViewComponentComponent implements OnInit {
     return true
   }
 
+  
+  /**
+   * Delete HTTP Request 
+   * 
+   * Takes the id from the form in the view. Then makes the Delete request
+   */
   deletePokemon() {
     this.pokemonService.deletePokemon(this.pokemonId.value)
       .subscribe(
@@ -133,6 +163,13 @@ export class TableViewComponentComponent implements OnInit {
     this.resetTable()
   }
 
+  
+  /**
+   *  
+   * Complementary method of getAllPokemon()
+   * It takes the HTTP response and cast every item to a pokemon. 
+   * Then, add all of that items to the list variable
+   */
   private assignPokemontoPokemonList(response : any) : void {
     for (let i = 0; i < response.length; i++) {
 
@@ -143,12 +180,20 @@ export class TableViewComponentComponent implements OnInit {
     }
   }
 
+  
+  /**
+   * Set de default state of tables and forms of the view
+   */
   resetTable() : void {
     this.pokemonList = [];
     this.isThereAPokemon = false;
     this.resetForms()
   }
 
+  
+  /**
+   * Set de default state of forms of the view
+   */
   private resetForms() {
     this.pokemonId.reset()
     this.pokemonName.reset()
@@ -159,6 +204,10 @@ export class TableViewComponentComponent implements OnInit {
     this.errorMessage = ""
   }
 
+  
+  /**
+   * Validates that a pokemon with the id provided is in the table list
+   */
   private isPokemonIdInDatabase(id: number) : boolean {
     
     console.log(id)

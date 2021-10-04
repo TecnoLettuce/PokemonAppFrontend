@@ -22,16 +22,35 @@ export class PokemonService {
 
   }
 
+  
+  /**
+   * HTTP GET request -> Take all pokemon from backend
+   * 
+   * @returns Observable<any>
+   * @param null
+   */
   getAllPokemon(): Observable<any> {
 
     return this.http.get("/api/Pokemon")
   }
 
+  /**
+   * HTTP GET request -> Take pokemon with correct id from backend
+   * 
+   * @returns Observable<any>
+   * @param number
+   */
   getPokemonById(id : number): Observable<any> {
 
     return this.http.get("/api/Pokemon/" + id)
   }
 
+  /**
+   * HTTP POST request -> Send to backend the suitable data to create a new item in the database
+   * 
+   * @returns null
+   * @param Pokemon
+   */
   createPokemon(pokemon : Pokemon): void {
     
     let postData = {
@@ -49,6 +68,12 @@ export class PokemonService {
   }
 
 
+  /**
+   * HTTP PUT request -> Send to backend the suitable data to update the item that suits the pokemon ID
+   * 
+   * @returns Observable<any>
+   * @param Pokemon
+   */
   updatePokemon(pokemon : Pokemon) : Observable<any> {
 
     console.log('Dentro de update')
@@ -65,6 +90,12 @@ export class PokemonService {
     return this.http.put('/api/Pokemon', putData)
   }
 
+  /**
+   * HTTP DELETE request -> Send a request to backend to delete the item that suits the id
+   * 
+   * @returns Observable<any>
+   * @param number
+   */
   deletePokemon(id:number): Observable<any> {
     
     return this.http.delete("api/Pokemon/"+id)
