@@ -96,6 +96,7 @@ export class TableViewComponentComponent implements OnInit {
                               this.pokemonGeneration.value, 
                               this.imx_location.value)
     this.pokemonService.createPokemon(pokemon)
+    this.resetTable()
   }
 
   updatePokemon() {
@@ -110,6 +111,7 @@ export class TableViewComponentComponent implements OnInit {
         }
       )
     alert("Eliminado!")
+    this.resetTable()
   }
 
   private assignPokemontoPokemonList(response : any) : void {
@@ -125,7 +127,17 @@ export class TableViewComponentComponent implements OnInit {
   resetTable() : void {
     this.pokemonList = [];
     this.isThereAPokemon = false;
-    
+    this.resetForms()
+  }
+
+  private resetForms() {
+    this.pokemonId.reset()
+    this.pokemonName.reset()
+    this.pokemonType1.reset()
+    this.pokemonType2.reset()
+    this.pokemonGeneration.reset()
+    this.imx_location.reset()
+    this.errorMessage = ""
   }
 
 }

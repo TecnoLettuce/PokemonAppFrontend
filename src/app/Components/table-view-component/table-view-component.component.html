@@ -43,12 +43,15 @@
 <br>
 <hr>
 <br>
+
 <h1>Get pokemon by Database ID</h1>
 
 
 <div class="form-group">
   <label for="pokemonId">Pokemon Database ID: </label>
   <input id="pokemonId" type="number" [formControl]="pokemonId">
+  <br>
+  <br>
   <button type="button" (click)="getPokemonById()">Search</button>
   <button type="button" (click)="resetTable()">Reset Table</button>
 </div>
@@ -79,66 +82,82 @@
   </tbody>
 </table>
 
-
 <br>
 <br>
 <hr>
 <br>
-<h1>Insert new pokemon</h1>
 
 
-<div class="form-group">
-  <label for="pokemonId">New Pokemon Pokedex ID : </label>
-  <input id="pokemonId" type="number" [formControl]="pokemonId">
-  <br>
-  <label for="pokemonName">New Pokemon Name : </label>
-  <input id="pokemonName" type="text" [formControl]="pokemonName">
-  <br>
-  <label for="pokemonType1">New Pokemon Type 1 : </label>
-  <input id="pokemonType1" type="text" [formControl]="pokemonType1">
-  <br>
-  <label for="pokemonType2">New Pokemon Type 2 : </label>
-  <input id="pokemonType1" type="text" [formControl]="pokemonType2">
-  <br>
-  <label for="pokemonGeneration">New Pokemon Generation : </label>
-  <input id="pokemonGeneration" type="number" [formControl]="pokemonGeneration">
-  <br>
-  <label for="imx_location">New Pokemon Sprite : </label>
-  <input id="imx_location" type="text" [formControl]="imx_location">
-  <br>
-  <br>
+<table>
+  <thead>
+    <tr>
+      <th><h1>Insert new pokemon</h1></th>
+      <th><h1>Delete pokemon</h1></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div class="form-group">
 
-  <button type="button" (click)="createPokemon()">Insert Pokemon</button>
-  <!--
-  <button type="button" (click)="resetTable()">Reset Table</button>
-  -->
-</div>
+          <table>
+            <tbody>
+              <tr>
+                <td><label for="pokemonId">New Pokemon Pokedex ID : </label></td>
+                <td><input id="pokemonId" type="number" [formControl]="pokemonId"></td>
+              </tr>
+              <tr>
+                <td><label for="pokemonName">New Pokemon Name : </label></td>
+                <td><input id="pokemonName" type="text" [formControl]="pokemonName"></td>
+              </tr>
+              <tr>
+                <td><label for="pokemonType1">New Pokemon Type 1 : </label></td>
+                <td><input id="pokemonType1" type="text" [formControl]="pokemonType1"></td>
+              </tr>
+              <tr>
+                <td><label for="pokemonType2">New Pokemon Type 2 : </label></td>
+                <td><input id="pokemonType1" type="text" [formControl]="pokemonType2"></td>
+              </tr>
+              <tr>
+                <td><label for="pokemonGeneration">New Pokemon Generation : </label></td>
+                <td><input id="pokemonGeneration" type="number" [formControl]="pokemonGeneration"></td>
+              </tr>
+              <tr>
+                <td><label for="imx_location">New Pokemon Sprite : </label></td>
+                <td><input id="imx_location" type="text" [formControl]="imx_location"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button type="button" (click)="createPokemon()">Insert Pokemon</button>
+          <!--
+          <button type="button" (click)="resetTable()">Reset Table</button>
+          -->
+        </div>
+      </td>
+      <td>
+        <div class="form-group">
+          <label for="pokemonId">Database ID : </label>
+          <input id="pokemonId" type="number" [formControl]="pokemonId">
+          <br>
+          <br>
+        
+          <button type="button" (click)="deletePokemon()">Delete Pokemon</button>
+          <!--
+          <button type="button" (click)="resetTable()">Reset Table</button>
+          -->
+        </div>
+              
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
  
 <div *ngIf="loadingSW">loading...</div>
-
-<br>
-<br>
-<hr>
-<br>
-<h1>Delete pokemon</h1>
-
-
-<div class="form-group">
-  <label for="pokemonId">Database ID : </label>
-  <input id="pokemonId" type="number" [formControl]="pokemonId">
-  <br>
-  <br>
-
-  <button type="button" (click)="deletePokemon()">Delete Pokemon</button>
-  <!--
-  <button type="button" (click)="resetTable()">Reset Table</button>
-  -->
-</div>
- 
-<div *ngIf="loadingSW">loading...</div>
-
-
-
 
  
 <div *ngIf="errorMessage" class="alert alert-warning">
