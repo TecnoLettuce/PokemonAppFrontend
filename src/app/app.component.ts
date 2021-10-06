@@ -8,5 +8,5 @@ import { PokemonService } from './Services/pokemon.service';
   providers: [PokemonService]
 })
 export class AppComponent {
-  title = 'pokemonAppFrontend';
+  title = 'Welcome to Pokedex Service';
 }

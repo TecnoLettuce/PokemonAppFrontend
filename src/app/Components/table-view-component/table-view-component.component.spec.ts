@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PokemonService } from 'src/app/Services/pokemon.service';
 
 import { TableViewComponentComponent } from './table-view-component.component';
 
@@ -8,7 +9,7 @@ describe('TableViewComponentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableViewComponentComponent ]
+      declarations: [ TableViewComponentComponent, PokemonService ]
     })
     .compileComponents();
   });
@@ -20,6 +21,6 @@ describe('TableViewComponentComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeFalse();
+    expect(component).toBeTrue();
   });
 });

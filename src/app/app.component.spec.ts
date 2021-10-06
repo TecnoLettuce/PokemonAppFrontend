@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'pokemonAppFrontend'`, () => {
+  it(`should have as title 'Welcome to Pokedex Service'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('pokemonAppFrontend');
+    expect(app.title).toEqual('Welcome to Pokedex Service');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('pokemonAppFrontend app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Welcome to Pokedex Service');
   });
 });
