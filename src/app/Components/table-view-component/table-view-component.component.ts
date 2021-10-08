@@ -106,7 +106,7 @@ export class TableViewComponentComponent implements OnInit {
    * Creates a new Pokemon whith that data, then send the request
    */
   createPokemon() {
-    let pokemon = new Pokemon(this.pokemonId.value,
+    let pokemon = new Pokemon(2000,
                               0,
                               this.pokemonName.value,
                               this.pokemonType1.value,

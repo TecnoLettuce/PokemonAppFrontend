@@ -28,7 +28,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let pokemon of pokemonList; let i = index">
-      <td>{{pokemonList[i].PokedexId}}</td>
+      <td>{{pokemonList[i].PokedexId}}</td> 
       <td>{{pokemonList[i].DatabaseId}}</td>
       <td>{{pokemonList[i].Name}}</td>
       <td>{{pokemonList[i].Type1}}</td>
@@ -102,10 +102,12 @@
 
           <table>
             <tbody>
+              <!--
               <tr>
                 <td><label for="pokemonId">New Pokemon Pokedex ID : </label></td>
                 <td><input id="pokemonId" type="number" [formControl]="pokemonId"></td>
               </tr>
+              -->
               <tr>
                 <td><label for="pokemonName">New Pokemon Name : </label></td>
                 <td><input id="pokemonName" type="text" [formControl]="pokemonName"></td>
